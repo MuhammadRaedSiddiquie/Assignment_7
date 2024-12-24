@@ -20,7 +20,7 @@ interface ITodo {
 
 
 }
-const page = () => {
+const ClientSide = () => {
     const [data, setData] = useState < ITodo[] > ([]);
     const [isLoading, setLoading] = useState(true)
     useEffect(() => {
@@ -50,7 +50,7 @@ const page = () => {
             {isLoading ? <div className='w-full h-screen bg-[#f5f5f5] bg-[url("/loader.gif")] bg-[length:500px_300px] bg-no-repeat bg-center absolute z-10'></div> :
 
                 data ? data.map((product) => (
-                    <div className='w-[330px] h-[580px] shadow-[0_0_20px_2px_#ebe9e9] rounded-[40px] flex flex-col bg-white items-center justify-start cursor-pointer'>
+                    <div key={product.id} className='w-[330px] h-[580px] shadow-[0_0_20px_2px_#ebe9e9] rounded-[40px] flex flex-col bg-white items-center justify-start cursor-pointer'>
                         {/* {isLoading && (
                             <div className='absolute inset-0 flex justify-center items-center bg-gray-200 opacity-75 z-10'>
                                 <div className="animate-spin rounded-full border-t-4 border-blue-500 w-16 h-16"></div>
@@ -85,4 +85,4 @@ const page = () => {
     )
 }
 
-export default page
+export default ClientSide;

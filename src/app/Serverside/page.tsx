@@ -2,11 +2,16 @@
 import React from 'react'
 
 
+interface DataProps{
+    id: number;
+    name:string;
+    type:string;
+    available:boolean;
+}
 
-
-const page = async () => {
-    let response = await fetch("https://simple-books-api.glitch.me/books/");
-    let parsedResponse = await response.json();
+const ServerSide = async () => {
+    const response = await fetch("https://simple-books-api.glitch.me/books/");
+    const parsedResponse:DataProps[] = await response.json();
     // console.log(parsedResponse, '==> response')
 
 
@@ -37,4 +42,4 @@ const page = async () => {
     )
 }
 
-export default page
+export default ServerSide;
